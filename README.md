@@ -1,5 +1,9 @@
 # Mohammad Ovais's Portfolio - macOS Desktop Experience
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Site-blue?style=for-the-badge)](https://m-portfolio-pied.vercel.app/)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/ovais-007/mPortfolio)
+
+
 A stunning portfolio website that recreates the macOS desktop experience with Tailwind CSS and Next.js.
 
 ## 🌟 Features
