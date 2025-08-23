@@ -1,0 +1,269 @@
+@import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&display=swap");
+
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f7f7f7;
+}
+
+/* Custom scrollbars for macOS feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Disable text selection on draggable elements */
+.select-none {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Smooth transitions for hover effects */
+.transition-transform {
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Backdrop blur support */
+.backdrop-blur-57 {
+  backdrop-filter: blur(57px);
+  -webkit-backdrop-filter: blur(57px);
+}
+
+.backdrop-blur-13 {
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+}
+
+/* Custom shadows for macOS UI */
+.shadow-dock {
+  box-shadow:
+    0 0 31.392404556274414px rgba(0, 0, 0, 0.25),
+    0 0 1.5696202516555786px rgba(0, 0, 0, 0.3);
+}
+
+.shadow-window {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Prevent dragging of images */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
+
+/* Custom cursor styles */
+.cursor-grab {
+  cursor: grab;
+}
+
+.cursor-grab:active {
+  cursor: grabbing;
+}
+
+/* Instrument Serif font class */
+.font-instrument {
+  font-family: "Instrument Serif", serif;
+}
+
+/* macOS window controls */
+.window-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.window-control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 0.5px solid;
+}
+
+.window-control.close {
+  background-color: #ff6157;
+  border-color: #e24640;
+}
+
+.window-control.minimize {
+  background-color: #ffc12f;
+  border-color: #dfa023;
+}
+
+.window-control.maximize {
+  background-color: #2acb42;
+  border-color: #1bac2c;
+}
+
+/* Dock animation */
+.dock-icon {
+  transition: transform 0.2s ease-in-out;
+}
+
+.dock-icon:hover {
+  transform: translateY(-15px) scale(1.2);
+}
+
+/* Folder hover effects */
+.folder-icon:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Sticky note styling */
+.sticky-note {
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Menu bar blur */
+.menu-bar {
+  backdrop-filter: blur(13.591408729553223px);
+  -webkit-backdrop-filter: blur(13.591408729553223px);
+  background-color: rgba(252, 252, 252, 0.8);
+  box-shadow:
+    0 1px rgba(0, 0, 0, 0.05),
+    0 0.5px rgba(0, 0, 0, 0.1);
+}
+
+/* Desktop background pattern */
+.desktop-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/EeD4hr0OuMeMkXRA4cayyZJOag.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.49;
+  z-index: -1;
+}
+
+/* Custom focus styles */
+button:focus,
+a:focus {
+  outline: 2px solid #007aff;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Responsive container */
+@media (max-width: 1199px) {
+  .desktop-container {
+    width: 810px;
+    transform: scale(0.8);
+    transform-origin: center;
+  }
+}
+
+@media (max-width: 809px) {
+  .desktop-container {
+    width: 390px;
+    transform: scale(0.6);
+    transform-origin: center;
+  }
+
+  .welcome-text {
+    font-size: 16px !important;
+  }
+
+  .welcome-text-large {
+    font-size: 40px !important;
+  }
+}
+
+/* Smooth scaling for better mobile experience */
+.desktop-main {
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Prevent text highlighting during drag */
+.no-select {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  .dock-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+  }
+
+  .folder-icon:hover {
+    transform: scale(1.05);
+  }
+
+  /* Disable animations on touch devices for better performance */
+  .dock-icon {
+    animation: none !important;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .desktop-bg::before {
+    background-size: contain;
+  }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 809px) and (orientation: landscape) {
+  .welcome-text {
+    font-size: 14px !important;
+  }
+
+  .welcome-text-large {
+    font-size: 32px !important;
+  }
+
+  .dock-icon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .menu-bar,
+  .dock-container,
+  .desktop-bg::before {
+    display: none !important;
+  }
+}
