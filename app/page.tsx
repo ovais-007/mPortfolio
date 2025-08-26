@@ -78,7 +78,7 @@ export default function Home() {
     setSelectedItem(itemId);
     if (itemId === "resume-pdf") {
       window.open(
-        "https://drive.google.com/file/d/1MW3-6aZrFarw-A4xhR-OepXMP0flgWaE/view?usp=drive_link",
+        "https://drive.google.com/file/d/14isI2aTbXxmPICDXK_oaxtXWX0JzXYk_/view?usp=share_link",
         "_blank",
       );
     } else if (itemId === "todo-note") {
