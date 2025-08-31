@@ -6,6 +6,7 @@ import Dock from "../components/Dock";
 import DesktopIcon from "../components/DesktopIcon";
 import AboutMeModal from "../components/AboutMeModal";
 import ProjectModal from "../components/ProjectModal";
+import ResumeModal from "../components/ResumeModal";
 import { useDraggable } from "../lib/useDraggable";
 
 interface DraggableItem {
@@ -62,14 +63,12 @@ export default function Home() {
   const [showModal, setShowModal] = useState(false);
   const [showAboutMe, setShowAboutMe] = useState(false);
   const [showProject, setShowProject] = useState(false);
+  const [showResume, setShowResume] = useState(false);
 
   const handleDesktopIconClick = (itemId: string) => {
     setSelectedItem(itemId);
     if (itemId === "resume-pdf") {
-      window.open(
-        "https://drive.google.com/file/d/14isI2aTbXxmPICDXK_oaxtXWX0JzXYk_/view?usp=share_link",
-        "_blank",
-      );
+      setShowResume(true);
     } else if (itemId === "todo-note") {
       // Todo note is just draggable, no modal
       return;
@@ -106,6 +105,11 @@ export default function Home() {
 
   const closeProject = () => {
     setShowProject(false);
+    setSelectedItem(null);
+  };
+
+  const closeResume = () => {
+    setShowResume(false);
     setSelectedItem(null);
   };
 
@@ -247,6 +251,9 @@ export default function Home() {
         projectId={selectedItem || ""}
         setShowAboutMe={setShowAboutMe}
       />
+
+      {/* Resume Modal */}
+      <ResumeModal isOpen={showResume} onClose={closeResume} />
 
       {/* Modal for other folder content */}
       {showModal && selectedItem && (
