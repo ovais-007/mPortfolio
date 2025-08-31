@@ -28,50 +28,55 @@ interface ProjectModalProps {
 
 const projectData: Record<string, ProjectData> = {
   "project-01": {
-    title: "AbsolutMess",
-    subtitle: "Visual Design & UI",
+    title: "Draw-App",
+    subtitle: "Full-Stack Collaborative Drawing Platform",
     no: "project-01",
-    liveLink: "https://absolutmess.com",
-    githubLink: "https://github.com/ovais007/absolutmess",
+    liveLink: null,
+    githubLink: "https://github.com/ovais-007/draw-app",
     hasReadme: true,
     readme: {
-      title: "AbsolutMess - Project Details",
+      title: "Draw-App - Collaborative Drawing Platform",
       content:
-        "A comprehensive visual design system for modern web applications. This project focuses on creating a clean, minimalist interface with attention to detail and user experience.",
+        "Built a real-time collaborative drawing app with live canvas sync via WebSockets for sub-second multi-user interaction. Designed a scalable microservices architecture with Next.js, TypeScript, Prisma, and TailwindCSS for cross-platform use. Tech Stack: Next.js, TypeScript, Node.js, Prisma, WebSocket, TailwindCSS, PostgreSQL.",
     },
   },
   "project-02": {
-    title: "Simplingo",
-    subtitle: "UX Research & Design",
+    title: "PDF-Genius",
+    subtitle: "AI-Powered PDF Query Tool",
     no: "project-02",
-    liveLink: "https://simplingo.app",
-    githubLink: "https://github.com/ovais007/simplingo",
+    liveLink: null,
+    githubLink: "https://github.com/ovais-007/pdf-genius",
     hasReadme: true,
     readme: {
-      title: "Simplingo - Language Learning Platform",
+      title: "PDF-Genius - AI Document Analysis",
       content:
-        "An innovative language learning platform that simplifies the learning process through gamification and interactive exercises. Built with React and modern design principles.",
+        "Developed an AI-powered tool to query and extract insights from PDF documents using Google Gemini API. Integrated document parsing with pdf-parse and semantic search using Pinecone vector database for RAG. Tech Stack: Next.js, TypeScript, React, Google Gemini, Pinecone, NextAuth, Tailwind CSS.",
     },
   },
   "project-03": {
-    title: "Leafpress",
-    subtitle: "Product Design",
+    title: "AI Pitch Deck Analyzer",
+    subtitle: "PDF Analysis & Sentiment Engine",
     no: "project-03",
     liveLink: null,
-    githubLink: "https://github.com/ovais007/leafpress",
-    hasReadme: false,
-  },
-  "project-04": {
-    title: "Amazon",
-    subtitle: "Interaction Design",
-    no: "project-04",
-    liveLink: null,
-    githubLink: null,
+    githubLink: "https://github.com/ovais-007/ai-pitch-deck-analyzer",
     hasReadme: true,
     readme: {
-      title: "Amazon Redesign Concept",
+      title: "AI Pitch Deck Analyzer - Investment Insights",
       content:
-        "A complete redesign concept for Amazon's interface focusing on improved user experience, better navigation, and modern design patterns. This project explores new interaction paradigms.",
+        "Built PDF parsing pipeline with automated text extraction and sentiment analysis for investor-ready insights. Implemented React.js frontend with file upload, PDF parsing, and automated scoring algorithms. Tech Stack: Python, TensorFlow, React.js, scikit-learn.",
+    },
+  },
+  "project-04": {
+    title: "Custom Gmail MCP",
+    subtitle: "Email Automation Tool",
+    no: "project-04",
+    liveLink: null,
+    githubLink: "https://github.com/ovais-007/custom-gmail-mcp",
+    hasReadme: true,
+    readme: {
+      title: "Custom Gmail MCP - Email Automation",
+      content:
+        "Developed Model Context Protocol server for Gmail automation using Google APIs and OAuth2 authentication. Built email processing pipeline with search, send, read, and attachment handling capabilities. Tech Stack: Node.js, Google Gmail API, OAuth2, TypeScript.",
     },
   },
 };

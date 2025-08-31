@@ -83,14 +83,8 @@ export default function DesktopIcon({
           )}
         </div>
         {title && (
-          <span className="text-black text-[13px] font-medium text-center leading-tight">
-            {title}
-            {subtitle && (
-              <>
-                <br />
-                {subtitle}
-              </>
-            )}
+          <span className="text-black text-[13px] font-medium text-center leading-tight whitespace-nowrap">
+            {title} {subtitle}
           </span>
         )}
       </div>

@@ -175,7 +175,7 @@ export default function Home() {
         onMouseDown={handleMouseDown}
         type="folder"
         title="Project 01"
-        subtitle="(AbsolutMess)"
+        subtitle="(Draw-App)"
         icon="/images/folderIcon.png"
       />
 
@@ -186,7 +186,7 @@ export default function Home() {
         onMouseDown={handleMouseDown}
         type="folder"
         title="Project 02"
-        subtitle="(Simplingo)"
+        subtitle="(PDF-Genius)"
         icon="/images/folderIcon.png"
       />
 
@@ -197,7 +197,7 @@ export default function Home() {
         onMouseDown={handleMouseDown}
         type="folder"
         title="Project 03"
-        subtitle="(Leafpress)"
+        subtitle="(AI Pitch Deck Analyzer)"
         icon="/images/folderIcon.png"
       />
 
@@ -208,7 +208,7 @@ export default function Home() {
         onMouseDown={handleMouseDown}
         type="folder"
         title="Project 04"
-        subtitle="(Amazon)"
+        subtitle="(Custom Gmail MCP)"
         icon="/images/folderIcon.png"
       />
 
