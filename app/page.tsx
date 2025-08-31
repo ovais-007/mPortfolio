@@ -63,17 +63,6 @@ export default function Home() {
   const [showAboutMe, setShowAboutMe] = useState(false);
   const [showProject, setShowProject] = useState(false);
 
-  const { items, handleMouseDown, handleMouseMove, handleMouseUp } =
-    useDraggable({
-      initialItems,
-      containerBounds: { width: 1500, height: 799 },
-    });
-
-  const handleDockIconClick = (iconName: string) => {
-    console.log(`Clicked dock icon: ${iconName}`);
-    // Add dock icon functionality here
-  };
-
   const handleDesktopIconClick = (itemId: string) => {
     setSelectedItem(itemId);
     if (itemId === "resume-pdf") {
@@ -91,6 +80,18 @@ export default function Home() {
     } else {
       setShowModal(true);
     }
+  };
+
+  const { items, handleMouseDown, handleMouseMove, handleMouseUp } =
+    useDraggable({
+      initialItems,
+      containerBounds: { width: 1500, height: 799 },
+      onItemClick: handleDesktopIconClick,
+    });
+
+  const handleDockIconClick = (iconName: string) => {
+    console.log(`Clicked dock icon: ${iconName}`);
+    // Add dock icon functionality here
   };
 
   const closeModal = () => {
@@ -150,7 +151,6 @@ export default function Home() {
         position={items["todo-note"].position}
         isDragging={items["todo-note"].isDragging}
         onMouseDown={handleMouseDown}
-        onClick={() => handleDesktopIconClick("todo-note")}
         type="note"
       />
 
@@ -160,7 +160,6 @@ export default function Home() {
         position={items["project-01"].position}
         isDragging={items["project-01"].isDragging}
         onMouseDown={handleMouseDown}
-        onClick={() => handleDesktopIconClick("project-01")}
         type="folder"
         title="Project 01"
         subtitle="(AbsolutMess)"
@@ -172,7 +171,6 @@ export default function Home() {
         position={items["project-02"].position}
         isDragging={items["project-02"].isDragging}
         onMouseDown={handleMouseDown}
-        onClick={() => handleDesktopIconClick("project-02")}
         type="folder"
         title="Project 02"
         subtitle="(Simplingo)"
@@ -184,7 +182,6 @@ export default function Home() {
         position={items["project-03"].position}
         isDragging={items["project-03"].isDragging}
         onMouseDown={handleMouseDown}
-        onClick={() => handleDesktopIconClick("project-03")}
         type="folder"
         title="Project 03"
         subtitle="(Leafpress)"
@@ -196,7 +193,6 @@ export default function Home() {
         position={items["project-04"].position}
         isDragging={items["project-04"].isDragging}
         onMouseDown={handleMouseDown}
-        onClick={() => handleDesktopIconClick("project-04")}
         type="folder"
         title="Project 04"
         subtitle="(Amazon)"
@@ -209,7 +205,6 @@ export default function Home() {
         position={items["resume-pdf"].position}
         isDragging={items["resume-pdf"].isDragging}
         onMouseDown={handleMouseDown}
-        onClick={() => handleDesktopIconClick("resume-pdf")}
         type="file"
         title="Resume.pdf"
         icon="/images/fileIcon.png"
@@ -222,7 +217,6 @@ export default function Home() {
         position={items["about-me"].position}
         isDragging={items["about-me"].isDragging}
         onMouseDown={handleMouseDown}
-        onClick={() => handleDesktopIconClick("about-me")}
         type="folder"
         title="About Me"
         icon="/images/folderIcon.png"
@@ -234,7 +228,6 @@ export default function Home() {
         position={items["dont-look"].position}
         isDragging={items["dont-look"].isDragging}
         onMouseDown={handleMouseDown}
-        onClick={() => handleDesktopIconClick("dont-look")}
         type="folder"
         title="Don't Look"
         icon="/images/bill-full.png"

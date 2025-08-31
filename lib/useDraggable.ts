@@ -17,17 +17,27 @@ interface UseDraggableProps {
     width: number;
     height: number;
   };
+  onItemClick?: (itemId: string) => void;
 }
 
 export function useDraggable({
   initialItems,
-  containerBounds = { width: 1200, height: 799 }
+  containerBounds = { width: 1200, height: 799 },
+  onItemClick
 }: UseDraggableProps) {
   const [items, setItems] = useState<Record<string, DraggableItem>>(initialItems);
-  const dragStartRef = useRef<{ x: number; y: number; itemId: string }>({
+  const dragStartRef = useRef<{ 
+    x: number; 
+    y: number; 
+    itemId: string;
+    startX: number;
+    startY: number;
+  }>({
     x: 0,
     y: 0,
     itemId: '',
+    startX: 0,
+    startY: 0,
   });
 
   const handleMouseDown = useCallback((e: React.MouseEvent, itemId: string) => {
@@ -37,6 +47,8 @@ export function useDraggable({
       x: e.clientX - rect.left,
       y: e.clientY - rect.top,
       itemId,
+      startX: e.clientX,
+      startY: e.clientY,
     };
 
     setItems(prev => ({
@@ -64,18 +76,33 @@ export function useDraggable({
     }));
   }, [containerBounds]);
 
-  const handleMouseUp = useCallback(() => {
+  const handleMouseUp = useCallback((e: React.MouseEvent) => {
     if (dragStartRef.current.itemId) {
+      const itemId = dragStartRef.current.itemId;
+      
+      // Calculate the distance moved
+      const deltaX = Math.abs(e.clientX - dragStartRef.current.startX);
+      const deltaY = Math.abs(e.clientY - dragStartRef.current.startY);
+      const dragThreshold = 5; // Minimum pixels to consider it a drag
+      
+      const wasDragged = deltaX > dragThreshold || deltaY > dragThreshold;
+
       setItems(prev => ({
         ...prev,
-        [dragStartRef.current.itemId]: {
-          ...prev[dragStartRef.current.itemId],
+        [itemId]: {
+          ...prev[itemId],
           isDragging: false,
         },
       }));
-      dragStartRef.current = { x: 0, y: 0, itemId: '' };
+
+      // Only open modal if it was a click (not a drag)
+      if (!wasDragged && onItemClick) {
+        onItemClick(itemId);
+      }
+
+      dragStartRef.current = { x: 0, y: 0, itemId: '', startX: 0, startY: 0 };
     }
-  }, []);
+  }, [onItemClick]);
 
   return {
     items,
