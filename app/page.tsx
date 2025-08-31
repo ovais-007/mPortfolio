@@ -7,6 +7,7 @@ import DesktopIcon from "../components/DesktopIcon";
 import AboutMeModal from "../components/AboutMeModal";
 import ProjectModal from "../components/ProjectModal";
 import ResumeModal from "../components/ResumeModal";
+import SpotifyModal from "../components/SpotifyModal";
 import { useDraggable } from "../lib/useDraggable";
 
 interface DraggableItem {
@@ -64,6 +65,7 @@ export default function Home() {
   const [showAboutMe, setShowAboutMe] = useState(false);
   const [showProject, setShowProject] = useState(false);
   const [showResume, setShowResume] = useState(false);
+  const [showSpotify, setShowSpotify] = useState(false);
 
   const handleDesktopIconClick = (itemId: string) => {
     setSelectedItem(itemId);
@@ -90,7 +92,10 @@ export default function Home() {
 
   const handleDockIconClick = (iconName: string) => {
     console.log(`Clicked dock icon: ${iconName}`);
-    // Add dock icon functionality here
+    if (iconName === "spotify") {
+      setShowSpotify(true);
+    }
+    // Add other dock icon functionality here
   };
 
   const closeModal = () => {
@@ -111,6 +116,10 @@ export default function Home() {
   const closeResume = () => {
     setShowResume(false);
     setSelectedItem(null);
+  };
+
+  const closeSpotify = () => {
+    setShowSpotify(false);
   };
 
   return (
@@ -254,6 +263,9 @@ export default function Home() {
 
       {/* Resume Modal */}
       <ResumeModal isOpen={showResume} onClose={closeResume} />
+
+      {/* Spotify Modal */}
+      <SpotifyModal isOpen={showSpotify} onClose={closeSpotify} />
 
       {/* Modal for other folder content */}
       {showModal && selectedItem && (
