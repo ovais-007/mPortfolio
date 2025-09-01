@@ -71,7 +71,7 @@ const projectData: Record<string, ProjectData> = {
     subtitle: "Email Automation Tool",
     no: "project-04",
     liveLink: null,
-    githubLink: "https://github.com/ovais-007/custom-gmail-mcp",
+    githubLink: "https://github.com/ovais-007/gmail-mcp-server",
     hasReadme: true,
     readme: {
       title: "Custom Gmail MCP - Email Automation",
