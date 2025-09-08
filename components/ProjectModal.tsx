@@ -31,7 +31,7 @@ const projectData: Record<string, ProjectData> = {
     title: "Draw-App",
     subtitle: "Full-Stack Collaborative Drawing Platform",
     no: "project-01",
-    liveLink: null,
+    liveLink: "https://draw-app-frontend-gamma.vercel.app/",
     githubLink: "https://github.com/ovais-007/draw-app",
     hasReadme: true,
     readme: {
@@ -44,7 +44,7 @@ const projectData: Record<string, ProjectData> = {
     title: "PDF-Genius",
     subtitle: "AI-Powered PDF Query Tool",
     no: "project-02",
-    liveLink: null,
+    liveLink: "https://pdf-genius-kappa.vercel.app/",
     githubLink: "https://github.com/ovais-007/pdf-genius",
     hasReadme: true,
     readme: {
